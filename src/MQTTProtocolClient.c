@@ -438,7 +438,7 @@ int MQTTProtocol_handlePubacks(void* pack, SOCKET sock)
 	Log(LOG_PROTOCOL, 14, NULL, sock, client->clientID, puback->msgId);
 
 	/* look for the message by message id in the records of outbound messages for this client */
-	if (ListFindItem(client->outboundMsgs, &(puback->msgId), messageIDCompare) == NULL)
+	if (1 || ListFindItem(client->outboundMsgs, &(puback->msgId), messageIDCompare) == NULL)
 		Log(TRACE_MIN, 3, NULL, "PUBACK", client->clientID, puback->msgId);
 	else
 	{
